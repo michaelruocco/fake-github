@@ -1,0 +1,34 @@
+{
+  "uuid" : "0a573c63-c60e-342c-a90f-423ec5f0876f",
+  "request" : {
+    "url" : "/repos/HackerYou/broken-sinatra/languages",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "bodyFileName" : "body-broken-sinatra-languages-i6MqP.json",
+    "headers" : {
+      "Server" : "GitHub.com",
+      "Date" : "Wed, 17 Aug 2016 11:26:58 GMT",
+      "Content-Type" : "application/json; charset=utf-8",
+      "Status" : "200 OK",
+      "X-RateLimit-Limit" : "60",
+      "X-RateLimit-Remaining" : "45",
+      "X-RateLimit-Reset" : "1471436115",
+      "Cache-Control" : "public, max-age=60, s-maxage=60",
+      "Vary" : [ "Accept", "Accept-Encoding" ],
+      "ETag" : "\"b3a984115edb8b8b0c62d40cd5ef137b\"",
+      "Last-Modified" : "Sat, 07 Feb 2015 17:59:49 GMT",
+      "X-GitHub-Media-Type" : "github.v3",
+      "Access-Control-Expose-Headers" : "ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval",
+      "Access-Control-Allow-Origin" : "*",
+      "Content-Security-Policy" : "default-src 'none'",
+      "Strict-Transport-Security" : "max-age=31536000; includeSubdomains; preload",
+      "X-Content-Type-Options" : "nosniff",
+      "X-Frame-Options" : "deny",
+      "X-XSS-Protection" : "1; mode=block",
+      "X-Served-By" : "173530fed4bbeb1e264b2ed22e8b5c20",
+      "X-GitHub-Request-Id" : "D569CAFD:6518:124B183:57B44A02"
+    }
+  }
+}

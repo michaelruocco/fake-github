@@ -1,0 +1,34 @@
+{
+  "uuid" : "12cc60a2-35b7-3aa2-921c-ed2cceec3225",
+  "request" : {
+    "url" : "/repos/HackerYou/HYFallBootcamp2014/languages",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "bodyFileName" : "body-HYFallBootcamp2014-languages-vIycs.json",
+    "headers" : {
+      "Server" : "GitHub.com",
+      "Date" : "Wed, 17 Aug 2016 11:29:52 GMT",
+      "Content-Type" : "application/json; charset=utf-8",
+      "Status" : "200 OK",
+      "X-RateLimit-Limit" : "60",
+      "X-RateLimit-Remaining" : "29",
+      "X-RateLimit-Reset" : "1471436115",
+      "Cache-Control" : "public, max-age=60, s-maxage=60",
+      "Vary" : [ "Accept", "Accept-Encoding" ],
+      "ETag" : "\"cb8707d538ef544b66efe6e910db72dc\"",
+      "Last-Modified" : "Tue, 21 Oct 2014 14:57:35 GMT",
+      "X-GitHub-Media-Type" : "github.v3",
+      "Access-Control-Expose-Headers" : "ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval",
+      "Access-Control-Allow-Origin" : "*",
+      "Content-Security-Policy" : "default-src 'none'",
+      "Strict-Transport-Security" : "max-age=31536000; includeSubdomains; preload",
+      "X-Content-Type-Options" : "nosniff",
+      "X-Frame-Options" : "deny",
+      "X-XSS-Protection" : "1; mode=block",
+      "X-Served-By" : "474556b853193c38f1b14328ce2d1b7d",
+      "X-GitHub-Request-Id" : "D569CAFD:6514:A5F3C0:57B44AB0"
+    }
+  }
+}

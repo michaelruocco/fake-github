@@ -1,0 +1,34 @@
+{
+  "uuid" : "146bd5e1-8d02-37e5-aed7-26c07598a452",
+  "request" : {
+    "url" : "/repos/HackerYou/amazon/languages",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "bodyFileName" : "body-amazon-languages-GBjl6.json",
+    "headers" : {
+      "Server" : "GitHub.com",
+      "Date" : "Wed, 17 Aug 2016 11:25:37 GMT",
+      "Content-Type" : "application/json; charset=utf-8",
+      "Status" : "200 OK",
+      "X-RateLimit-Limit" : "60",
+      "X-RateLimit-Remaining" : "49",
+      "X-RateLimit-Reset" : "1471436115",
+      "Cache-Control" : "public, max-age=60, s-maxage=60",
+      "Vary" : [ "Accept", "Accept-Encoding" ],
+      "ETag" : "\"08035746e1ceb493608399917e17b286\"",
+      "Last-Modified" : "Thu, 15 May 2014 23:51:48 GMT",
+      "X-GitHub-Media-Type" : "github.v3",
+      "Access-Control-Expose-Headers" : "ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval",
+      "Access-Control-Allow-Origin" : "*",
+      "Content-Security-Policy" : "default-src 'none'",
+      "Strict-Transport-Security" : "max-age=31536000; includeSubdomains; preload",
+      "X-Content-Type-Options" : "nosniff",
+      "X-Frame-Options" : "deny",
+      "X-XSS-Protection" : "1; mode=block",
+      "X-Served-By" : "ef96c2e493b28ffea49b891b085ed2dd",
+      "X-GitHub-Request-Id" : "D569CAFD:6514:A5A7F5:57B449B1"
+    }
+  }
+}

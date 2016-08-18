@@ -1,0 +1,34 @@
+{
+  "uuid" : "527acad8-62d8-33b8-816b-fc25f24b9d5d",
+  "request" : {
+    "url" : "/repos/HackerYou/json-proxy/languages",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "bodyFileName" : "body-json-proxy-languages-LaHma.json",
+    "headers" : {
+      "Server" : "GitHub.com",
+      "Date" : "Wed, 17 Aug 2016 11:30:15 GMT",
+      "Content-Type" : "application/json; charset=utf-8",
+      "Status" : "200 OK",
+      "X-RateLimit-Limit" : "60",
+      "X-RateLimit-Remaining" : "27",
+      "X-RateLimit-Reset" : "1471436115",
+      "Cache-Control" : "public, max-age=60, s-maxage=60",
+      "Vary" : [ "Accept", "Accept-Encoding" ],
+      "ETag" : "\"ddd9368106071d4c593ea23dcf61c38f\"",
+      "Last-Modified" : "Thu, 04 Aug 2016 12:32:22 GMT",
+      "X-GitHub-Media-Type" : "github.v3",
+      "Access-Control-Expose-Headers" : "ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval",
+      "Access-Control-Allow-Origin" : "*",
+      "Content-Security-Policy" : "default-src 'none'",
+      "Strict-Transport-Security" : "max-age=31536000; includeSubdomains; preload",
+      "X-Content-Type-Options" : "nosniff",
+      "X-Frame-Options" : "deny",
+      "X-XSS-Protection" : "1; mode=block",
+      "X-Served-By" : "b0ef53392caa42315c6206737946d931",
+      "X-GitHub-Request-Id" : "D569CAFD:6512:59C79C:57B44AC7"
+    }
+  }
+}
