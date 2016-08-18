@@ -9,9 +9,9 @@ specific user documentation can also be found [here](https://developer.github.co
  
 Currently the following endpoints are faked:
 
-* GET http://localhost:8099/users/hackeryou
-* GET http://localhost:8099/users/HackerYou/repos
-* GET http://localhost:8099/repos/HackerYou/amazon/languages (this is faked for all repos returned in the user repos call, amazon is just an example)
+* GET [http://localhost:8099/users/hackeryou]
+* GET [http://localhost:8099/users/HackerYou/repos]
+* GET [http://localhost:8099/repos/HackerYou/amazon/languages] (this is faked for all repos returned in the user repos call, amazon is just an example)
 
 The faked response payloads are listed at the bottom of the document (as some are quite lengthy!)
 
