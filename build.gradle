@@ -1,11 +1,28 @@
 apply plugin: 'java'
 apply plugin: 'application'
+apply plugin: 'idea'
+apply plugin: 'maven'
+apply plugin: 'signing'
+apply plugin: 'jacoco'
+apply plugin: 'com.github.kt3k.coveralls'
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'org.kt3k.gradle.plugin:coveralls-gradle-plugin:2.0.1'
+    }
+}
 
 project.ext {
     artifactId = "fake-github"
     group = 'uk.co.mruoc.fake.github'
     version = '1.0.0'
 }
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
 
 repositories {
     mavenCentral()
@@ -35,7 +52,6 @@ def getArtifactName() {
 }
 
 task allJar(type: Jar) {
-    dependsOn assemble
     manifest {
         attributes 'Implementation-Version': project.ext.version
         attributes 'Main-Class': mainClassName
@@ -43,4 +59,83 @@ task allJar(type: Jar) {
     baseName = artifactName
     from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
     with jar
+}
+
+jacocoTestReport {
+    reports {
+        xml.enabled = true
+        html.enabled = true
+    }
+}
+
+task sourcesJar(type: Jar, dependsOn: classes) {
+    classifier = 'sources'
+    from sourceSets.main.allSource
+}
+
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+}
+
+artifacts {
+    archives sourcesJar
+    archives javadocJar
+}
+
+gradle.taskGraph.whenReady { taskGraph ->
+    if (taskGraph.hasTask("uploadArchives")) {
+        signing {
+            required true
+            sign configurations.archives
+        }
+    }
+}
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
+
+            repository(url: "https://oss.sonatype.org/service/local/staging/deploy/maven2/") {
+                authentication(userName: ossrhUsername, password: ossrhPassword)
+            }
+
+            snapshotRepository(url: "https://oss.sonatype.org/content/repositories/snapshots/") {
+                authentication(userName: ossrhUsername, password: ossrhPassword)
+            }
+
+            pom.project {
+                packaging 'jar'
+                name 'Fake Github'
+                description 'Code library to mock github api'
+                groupId project.ext.group
+                artifactId project.ext.artifactId
+                version project.ext.version
+                url 'https://github.com/michaelruocco/fake-github'
+
+                developers {
+                    developer {
+                        id 'mruoc'
+                        name 'Michael Ruocco'
+                        email 'michael.ruocco@hotmail.com'
+                    }
+                }
+
+                scm {
+                    connection 'scm:git:git@github.com/michaelruocco/fake-github.git'
+                    developerConnection 'scm:git:git@github.com/michaelruocco/fake-github.git'
+                    url 'git@github.com/michaelruocco/fake-github.git'
+                }
+
+                licenses {
+                    license {
+                        name 'BSD License'
+                        url 'http://www.opensource.org/licenses/bsd-license.php'
+                        distribution 'repo'
+                    }
+                }
+            }
+        }
+    }
 }
