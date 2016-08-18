@@ -3,16 +3,24 @@ package uk.co.mruoc.fake.github;
 import com.github.tomakehurst.wiremock.WireMockServer;
 import com.github.tomakehurst.wiremock.core.WireMockConfiguration;
 
-public class FakeGithub {
+public class FakeGithub implements AutoCloseable {
+
+    private static final int DEFAULT_PORT = 8099;
 
     private WireMockServer server;
 
     public FakeGithub() {
-        String path = "uk/co/mruoc/fake/github";
-        WireMockConfiguration config = new WireMockConfiguration()
-                .usingFilesUnderClasspath(path)
-                .port(8099);
-        server = new WireMockServer(config);
+        this(DEFAULT_PORT);
+    }
+
+    public FakeGithub(int port) {
+        this(new WireMockConfiguration()
+                .usingFilesUnderClasspath("uk/co/mruoc/fake/github")
+                .port(port));
+    }
+
+    private FakeGithub(WireMockConfiguration configuration) {
+        server = new WireMockServer(configuration);
     }
 
     public void start() {
@@ -21,6 +29,11 @@ public class FakeGithub {
 
     public void stop() {
         server.stop();
+    }
+
+    @Override
+    public void close() throws Exception {
+        stop();
     }
 
 }
