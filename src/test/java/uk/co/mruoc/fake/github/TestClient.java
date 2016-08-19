@@ -10,10 +10,15 @@ import java.io.UncheckedIOException;
 
 public class TestClient {
 
-    private HttpClient client = HttpClientBuilder.create().build();
+    private final String host;
+    private final HttpClient client = HttpClientBuilder.create().build();
+
+    public TestClient(String host) {
+        this.host = host;
+    }
 
     public Response doGet(String endpoint) {
-        HttpGet get = new HttpGet(endpoint);
+        HttpGet get = new HttpGet(host + endpoint);
         return execute(get);
     }
 

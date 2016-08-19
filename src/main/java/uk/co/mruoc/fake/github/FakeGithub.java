@@ -15,6 +15,7 @@ public class FakeGithub implements AutoCloseable {
 
     public FakeGithub(int port) {
         this(new WireMockConfiguration()
+                .extensions(new HostTransformer(port))
                 .usingFilesUnderClasspath("uk/co/mruoc/fake/github")
                 .port(port));
     }

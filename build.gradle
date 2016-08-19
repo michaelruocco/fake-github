@@ -32,11 +32,12 @@ dependencies {
     compile 'com.github.tomakehurst:wiremock-standalone:2.1.10'
     compile 'org.slf4j:slf4j-simple:1.7.21'
     compile 'junit:junit:4.12'
+    compile 'org.apache.commons:commons-lang3:3.4'
+    compile 'org.apache.httpcomponents:httpclient:4.5.2'
 
-    testCompile 'org.apache.httpcomponents:httpclient:4.5.2'
     testCompile 'org.assertj:assertj-core:3.5.2'
-    testCompile sourceSets.main.output
     testCompile 'com.fasterxml.jackson.core:jackson-core:2.8.1'
+    testCompile sourceSets.main.output
 }
 
 run {
