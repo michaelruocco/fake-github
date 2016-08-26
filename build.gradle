@@ -48,16 +48,12 @@ def getMainClassName() {
     'uk.co.mruoc.fake.github.FakeGithubRunner'
 }
 
-def getArtifactName() {
-    project.ext.artifactId + '-all'
-}
-
 task allJar(type: Jar) {
     manifest {
         attributes 'Implementation-Version': project.ext.version
         attributes 'Main-Class': mainClassName
     }
-    baseName = artifactName
+    baseName = project.ext.artifactId
     from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
     with jar
 }

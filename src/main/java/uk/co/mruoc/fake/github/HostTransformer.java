@@ -14,8 +14,6 @@ import static com.github.tomakehurst.wiremock.http.Response.*;
 
 public class HostTransformer extends ResponseTransformer {
 
-    private static final String DEFAULT_HOST = "localhost";
-
     private final int port;
 
     public HostTransformer(int port) {
@@ -58,7 +56,7 @@ public class HostTransformer extends ResponseTransformer {
     }
 
     private String getDefaultHostUrl() {
-        return buildUrl(DEFAULT_HOST, port);
+        return buildUrl("localhost", port);
     }
 
     private String buildUrl(String host, int port) {

@@ -8,10 +8,12 @@ import static org.assertj.core.api.Java6Assertions.assertThat;
 
 public class FakeGithubTest {
 
-    private static final String HOST = "http://localhost:8099";
+    private static final int PORT = 8099;
+    private static final String HOST = "http://localhost:" + PORT;
+    private static final String OVERRIDE_HOST_PROPERTY_NAME = "overrideHost";
 
     @Rule
-    public final FakeGithubRule githubRule = new FakeGithubRule();
+    public final FakeGithubRule githubRule = new FakeGithubRule(PORT);
 
     private final TestClient client = new TestClient(HOST);
 
@@ -31,8 +33,6 @@ public class FakeGithubTest {
 
     @Test
     public void getUserShouldReturnMockHostInRepoUrl() {
-        System.clearProperty("overrideHost");
-        
         Response response = client.doGet("/users/hackeryou");
 
         assertThat(extractRepoUrl(response.getBody())).isEqualTo(HOST + "/users/HackerYou/repos");
@@ -40,12 +40,17 @@ public class FakeGithubTest {
 
     @Test
     public void getUserShouldReturnOverrideMockHostInRepoUrl() {
-        String overrideHost = "test";
-        System.setProperty("overrideHost", overrideHost);
+        try {
+            String overrideHost = "test";
+            setOverrideHostProperty(overrideHost);
+            String expectedUrl = "http://" + overrideHost + ":" + PORT + "/users/HackerYou/repos";
 
-        Response response = client.doGet("/users/hackeryou");
+            Response response = client.doGet("/users/hackeryou");
 
-        assertThat(extractRepoUrl(response.getBody())).isEqualTo("http://" + overrideHost + ":8099/users/HackerYou/repos");
+            assertThat(extractRepoUrl(response.getBody())).isEqualTo(expectedUrl);
+        } finally {
+            clearOverrideHostProperty();
+        }
     }
 
     @Test
@@ -115,6 +120,14 @@ public class FakeGithubTest {
 
     private static String extractRepoName(String json, int index) {
         return JsonConverter.toJson(json).get(index).get("name").asText();
+    }
+
+    private static void setOverrideHostProperty(String overrideHost) {
+        System.setProperty(OVERRIDE_HOST_PROPERTY_NAME, overrideHost);
+    }
+
+    private static void clearOverrideHostProperty() {
+        System.clearProperty(OVERRIDE_HOST_PROPERTY_NAME);
     }
 
 }
