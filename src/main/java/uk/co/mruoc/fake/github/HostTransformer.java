@@ -67,7 +67,7 @@ public class HostTransformer extends ResponseTransformer {
                     .setPort(port)
                     .build().toString();
         } catch (URISyntaxException e) {
-            throw new RuntimeException(e);
+            throw new CannotBuilderUriException(e);
         }
     }
 

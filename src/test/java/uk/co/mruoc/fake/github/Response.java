@@ -1,12 +1,9 @@
 package uk.co.mruoc.fake.github;
 
-import org.apache.http.Header;
 import org.apache.http.HttpResponse;
 import org.apache.http.util.EntityUtils;
 
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
 
 class Response {
 
@@ -22,11 +19,11 @@ class Response {
         return body;
     }
 
-    int getStatusCode() {
+    public int getStatusCode() {
         return statusCode;
     }
 
-    static Response fromApacheResponse(HttpResponse response) throws IOException {
+    protected static Response fromApacheResponse(HttpResponse response) throws IOException {
         int statusCode = response.getStatusLine().getStatusCode();
         String body = extractBody(response);
         return new Response(statusCode, body);
