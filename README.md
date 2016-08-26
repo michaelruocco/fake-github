@@ -1,5 +1,7 @@
 # Fake Github
 
+[![Build Status](https://travis-ci.org/michaelruocco/fake-github.svg?branch=master)](https://travis-ci.org/michaelruocco/fake-github)
+
 This project creates a fake implementation of a small portion of the github user api.
 It returns canned responses for the user "hackeryou", you are currently able to get
 the user details, a list of repos for the user, and a list of languages for each repo.
