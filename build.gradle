@@ -17,7 +17,7 @@ buildscript {
 
 project.ext {
     artifactId = "fake-github"
-    group = 'uk.co.mruoc.fake.github'
+    group = 'com.github.michaelruocco'
     version = '1.0.0'
 }
 
@@ -48,14 +48,13 @@ def getMainClassName() {
     'uk.co.mruoc.fake.github.FakeGithubRunner'
 }
 
-task allJar(type: Jar) {
+task standaloneJar(type: Jar) {
     manifest {
         attributes 'Implementation-Version': project.ext.version
         attributes 'Main-Class': mainClassName
     }
-    baseName = project.ext.artifactId
+    baseName = project.ext.artifactId + '-standalone'
     from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
-    with jar
 }
 
 jacocoTestReport {
@@ -80,8 +79,23 @@ artifacts {
     archives javadocJar
 }
 
+def getStandaloneArtifactId() {
+    project.ext.artifactId + '-standalone'
+}
+
+if (project.hasProperty("standalone")) {
+    jar {
+        manifest {
+            attributes 'Implementation-Version': project.ext.version
+            attributes 'Main-Class': mainClassName
+        }
+        baseName = standaloneArtifactId
+        from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+    }
+}
+
 gradle.taskGraph.whenReady { taskGraph ->
-    if (taskGraph.hasTask("uploadArchives")) {
+    if (taskGraph.hasTask(uploadArchives)) {
         signing {
             required true
             sign configurations.archives
@@ -107,7 +121,11 @@ uploadArchives {
                 name 'Fake Github'
                 description 'Code library to mock github api'
                 groupId project.ext.group
-                artifactId project.ext.artifactId
+                if (project.hasProperty('standalone')) {
+                    artifactId standaloneArtifactId
+                } else {
+                    artifactId project.ext.artifactId
+                }
                 version project.ext.version
                 url 'https://github.com/michaelruocco/fake-github'
 
