@@ -21,7 +21,7 @@ The library can be run as a standalone mock, or used as a library in your tests.
 To run the mock standalone you can run the following command from the command line.
 
 ```
-java -jar fake-github.jar
+java -jar fake-github-standalone.jar
 ```
 
 To use the library from a program you will need to add a dependency to your project. In
