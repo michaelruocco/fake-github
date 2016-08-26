@@ -1,6 +1,7 @@
 # Fake Github
 
 [![Build Status](https://travis-ci.org/michaelruocco/fake-github.svg?branch=master)](https://travis-ci.org/michaelruocco/fake-github)
+[![Coverage Status](https://coveralls.io/repos/github/michaelruocco/fake-github/badge.svg?branch=master)](https://coveralls.io/github/michaelruocco/fake-github?branch=master)
 [![Dependency Status](https://www.versioneye.com/user/projects/57c04c6b939fc6004abe44c3/badge.svg?style=flat-square)](https://www.versioneye.com/user/projects/57c04c6b939fc6004abe44c3)
 
 This project creates a fake implementation of a small portion of the github user api.
