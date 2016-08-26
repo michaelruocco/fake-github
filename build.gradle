@@ -29,7 +29,7 @@ repositories {
 }
 
 dependencies {
-    compile 'com.github.tomakehurst:wiremock-standalone:2.1.10'
+    compile 'com.github.tomakehurst:wiremock-standalone:2.1.11'
     compile 'org.slf4j:slf4j-simple:1.7.21'
     compile 'junit:junit:4.12'
     compile 'org.apache.commons:commons-lang3:3.4'
