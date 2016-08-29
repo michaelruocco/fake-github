@@ -3,8 +3,8 @@
 [![Build Status](https://travis-ci.org/michaelruocco/fake-github.svg?branch=master)](https://travis-ci.org/michaelruocco/fake-github)
 [![Coverage Status](https://coveralls.io/repos/github/michaelruocco/fake-github/badge.svg?branch=master)](https://coveralls.io/github/michaelruocco/fake-github?branch=master)
 [![Dependency Status](https://www.versioneye.com/user/projects/57c04c6b939fc6004abe44c3/badge.svg?style=flat-square)](https://www.versioneye.com/user/projects/57c04c6b939fc6004abe44c3)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/c26b1de126494bdda0d77a4526a269b5)](https://www.codacy.com/app/michael-ruocco/fake-github?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=michaelruocco/fake-github&amp;utm_campaign=Badge_Grade)
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.github.michaelruocco/fake-github/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.github.michaelruocco/fake-github)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/c26b1de126494bdda0d77a4526a269b5)](https://www.codacy.com/app/michael-ruocco/fake-github?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=michaelruocco/fake-github&amp;utm_campaign=Badge_Grade)
 
 This project creates a fake implementation of a small portion of the github user api.
 It returns canned responses for the user "hackeryou", you are currently able to get
