@@ -34,7 +34,7 @@ gradle you would do this by adding the following to your build.gradle file:
 
 ```
 dependencies {
-    classpath 'com.github.michaelruocco:fake-github:1.0.0'
+    classpath 'com.github.michaelruocco:fake-github:2.0.0'
 }
 ```
 
@@ -42,7 +42,7 @@ You can then create and instance of the FakeGithub class that can be started and
 by doing the following:
 
 ```
-FakeGithub github = new FakeGithub();
+FakeGithub github = new FakeGithubBuilder().build();
 github.start();
 
 // do some stuff
@@ -54,7 +54,7 @@ The FakeGithub class also implements AutoClosable so you can use a try with reso
 block too if required, or if you don't want to have to call stop explicitly:
 
 ```
-try (FakeGithub github = new FakeGithub()) {
+try (FakeGithub github = new FakeGithubBuilder().build()) {
     // do some stuff
 }
 ```
@@ -64,7 +64,7 @@ tests without having to set up @Before setUp and @After tearDown. The tests in t
 project are an example of this in action. To do this you can do the following:
 
 ```
-    public final FakeGithubRule githubRule = new FakeGithubRule();
+    public final FakeGithubRule githubRule = new FakeGithubRuleBuilder().build();
     
     @Test
     public void test1() {
