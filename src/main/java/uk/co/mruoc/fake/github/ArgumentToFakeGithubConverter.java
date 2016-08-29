@@ -32,13 +32,18 @@ public class ArgumentToFakeGithubConverter {
             CommandLineParser parser = new DefaultParser();
             return parser.parse(options, args);
         } catch (ParseException e) {
-            throw new ArgumentException(options, e);
+            throw new InvalidArgumentOptionException(options, e);
         }
     }
 
     private int getPort(CommandLine commandLine) {
         String defaultPort = Integer.toString(defaultConfig.getPort());
-        return Integer.parseInt(commandLine.getOptionValue(PORT_NAME, defaultPort));
+        String port = commandLine.getOptionValue(PORT_NAME, defaultPort);
+        try {
+            return Integer.parseInt(port);
+        } catch (NumberFormatException e) {
+            throw new InvalidPortException("invalid port " + port, e);
+        }
     }
 
     private String getResponseHostUrl(CommandLine commandLine) {

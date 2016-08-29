@@ -6,6 +6,7 @@ import uk.co.mruoc.fake.github.FakeGithubRule.FakeGithubRuleBuilder;
 
 import static org.apache.http.HttpStatus.SC_OK;
 import static org.assertj.core.api.Java6Assertions.assertThat;
+import static uk.co.mruoc.fake.github.JsonExtractor.*;
 
 public class FakeGithubTest {
 
@@ -15,6 +16,7 @@ public class FakeGithubTest {
     public final FakeGithubRule githubRule = new FakeGithubRuleBuilder().build();
 
     private final TestClient client = new TestClient(HOST);
+    private final JsonExtractor jsonExtractor = new JsonExtractor();
 
     @Test
     public void getUserShouldReturnOk() {
@@ -88,22 +90,6 @@ public class FakeGithubTest {
                 "  \"JavaScript\": 664,\n" +
                 "  \"CoffeeScript\": 422\n" +
                 "}\n");
-    }
-
-    private static String extractLogin(String json) {
-        return JsonConverter.toJson(json).get("login").asText();
-    }
-
-    private static String extractRepoUrl(String json) {
-        return JsonConverter.toJson(json).get("repos_url").asText();
-    }
-
-    private static int extractArraySize(String json) {
-        return JsonConverter.toJson(json).size();
-    }
-
-    private static String extractRepoName(String json, int index) {
-        return JsonConverter.toJson(json).get(index).get("name").asText();
     }
 
 }
