@@ -8,18 +8,7 @@ public class FakeGithubRule extends ExternalResource {
 
     private final FakeGithub fakeGithub;
 
-    public FakeGithubRule(int port) {
-        this(new FakeGithubBuilder().setPort(port).build());
-    }
-
-    public FakeGithubRule(int port, String responseHostUrl) {
-        this(new FakeGithubBuilder()
-                .setPort(port)
-                .setResponseHostUrl(responseHostUrl)
-                .build());
-    }
-
-    public FakeGithubRule(FakeGithub fakeGithub) {
+    private FakeGithubRule(FakeGithub fakeGithub) {
         this.fakeGithub = fakeGithub;
     }
 
@@ -33,4 +22,24 @@ public class FakeGithubRule extends ExternalResource {
         fakeGithub.stop();
     }
 
+
+    public static class FakeGithubRuleBuilder {
+
+        private final FakeGithubBuilder builder = new FakeGithubBuilder();
+
+        public FakeGithubRuleBuilder setPort(int port) {
+            this.builder.setPort(port);
+            return this;
+        }
+
+        public FakeGithubRuleBuilder setResponseHostUrl(String responseHostUrl) {
+            this.builder.setResponseHostUrl(responseHostUrl);
+            return this;
+        }
+
+        public FakeGithubRule build() {
+            return new FakeGithubRule(builder.build());
+        }
+
+    }
 }

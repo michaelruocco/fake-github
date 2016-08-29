@@ -2,17 +2,17 @@ package uk.co.mruoc.fake.github;
 
 import org.junit.Rule;
 import org.junit.Test;
+import uk.co.mruoc.fake.github.FakeGithubRule.FakeGithubRuleBuilder;
 
 import static org.apache.http.HttpStatus.SC_OK;
 import static org.assertj.core.api.Java6Assertions.assertThat;
 
 public class FakeGithubTest {
 
-    private static final int PORT = 8080;
-    private static final String HOST = "http://localhost:" + PORT;
+    private static final String HOST = "http://localhost:8080";
 
     @Rule
-    public final FakeGithubRule githubRule = new FakeGithubRule(PORT);
+    public final FakeGithubRule githubRule = new FakeGithubRuleBuilder().build();
 
     private final TestClient client = new TestClient(HOST);
 
