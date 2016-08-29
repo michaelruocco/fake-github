@@ -7,6 +7,8 @@ public class ArgumentToFakeGithubConverter {
     private static final String PORT_NAME = "PORT";
     private static final String RESPONSE_HOST_URL_NAME = "responseHostUrl";
 
+    private final DefaultConfig defaultConfig = new DefaultConfig();
+
     public FakeGithub toFakeGithub(String[] args) {
         CommandLine commandLine = parse(args);
         int port = getPort(commandLine);
@@ -35,11 +37,12 @@ public class ArgumentToFakeGithubConverter {
     }
 
     private int getPort(CommandLine commandLine) {
-        return Integer.parseInt(commandLine.getOptionValue(PORT_NAME, "8080"));
+        String defaultPort = Integer.toString(defaultConfig.getPort());
+        return Integer.parseInt(commandLine.getOptionValue(PORT_NAME, defaultPort));
     }
 
     private String getResponseHostUrl(CommandLine commandLine) {
-        return commandLine.getOptionValue(RESPONSE_HOST_URL_NAME, "http://localhost:8080");
+        return commandLine.getOptionValue(RESPONSE_HOST_URL_NAME, defaultConfig.getResponseHostUrl());
     }
 
 }

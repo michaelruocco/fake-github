@@ -33,11 +33,9 @@ public class FakeGithub implements AutoCloseable {
 
     public static class FakeGithubBuilder {
 
-        private static final int DEFAULT_PORT = 8080;
-        private static final String DEFAULT_RESPONSE_HOST_URL = "http://localhost:" + DEFAULT_PORT;
-
-        private int port = DEFAULT_PORT;
-        private String responseHostUrl = DEFAULT_RESPONSE_HOST_URL;
+        private final DefaultConfig defaultConfig = new DefaultConfig();
+        private int port = defaultConfig.getPort();
+        private String responseHostUrl = defaultConfig.getResponseHostUrl();
 
         public FakeGithubBuilder setPort(int port) {
             this.port = port;
