@@ -30,6 +30,18 @@ To run the mock standalone you can run the following command from the command li
 java -jar fake-github-standalone.jar
 ```
 
+You can also change the port the mock is running on, and override the host url that is
+used when the mock returns urls that point to other mocked resources using the following
+command line arguments
+
+```
+java -jar fake-github-standalone.jar -p 8099 -u http://anotherHost:8099
+```
+
+This means if you want to deploy your mock onto a host other than the one where your
+test code is running the references returned by the mock will still point correctly
+at your mock instance.
+
 To use the library from a program you will need to add a dependency to your project. In
 gradle you would do this by adding the following to your build.gradle file:
 
@@ -49,6 +61,15 @@ github.start();
 // do some stuff
 
 github.stop();
+```
+
+Again you can override the port and response host url if required:
+
+```
+FakeGithub github = new FakeGithubBuilder()
+    .setPort(8099)
+    .setResponseHostUrl("http://anotherHost:8099")
+    .build();
 ```
 
 The FakeGithub class also implements AutoClosable so you can use a try with resources
@@ -77,6 +98,10 @@ project are an example of this in action. To do this you can do the following:
         // test 2 using mock
     }
 ```
+
+It is also possible to override the default port and response host url
+when using the FakeGitHubRuleBuilder in the same way as when using the
+FakeGithubBuilder as is shown above.
 
 ## Running the Tests
 
