@@ -47,7 +47,7 @@ gradle you would do this by adding the following to your build.gradle file:
 
 ```
 dependencies {
-    classpath 'com.github.michaelruocco:fake-github:2.0.0'
+    testCompile 'com.github.michaelruocco:fake-github:2.0.0'
 }
 ```
 
